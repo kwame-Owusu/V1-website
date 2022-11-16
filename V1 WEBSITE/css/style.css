@@ -1,0 +1,601 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/*custom properties*/
+
+:root{
+    --ff-primary:  'Fira Mono', monospace;
+    --ff-secondary: 'Fira Mono', monospace;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    
+    --clr-bg: #fff;
+    --clr-text: #303030;
+    --clr-accent: #b0c6ff;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3:  1.25rem;
+    --fs-body: 1rem;
+
+    --boxshadow:0.25em 0.25em 0.75 rgba(0,0,0,.25),
+    0.125em 0.125em 0.25em rgba(0,0,0,0.15);
+    
+}
+
+
+@media(min-width: 800px) {
+    :root {
+        --fs-h1: 4.5;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+
+        
+    }
+
+}
+
+
+
+/*General styles*/
+@font-face {
+    font-family: 'Fira Mono';
+    src: url(/Fonts/FiraMono-Regular.ttf);
+}
+
+
+
+ html,
+ body{
+    
+    font-family: 'Fira Mono',monospace;
+
+}
+ 
+
+
+
+html {
+    scroll-behavior: smooth;    
+  
+}
+
+
+body {
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height:  1.6;
+    
+    
+}
+
+
+section{
+    padding: 5em 2em;
+    
+}
+
+img{
+    display: block;
+    max-width: 100%;
+
+
+
+
+}
+
+.btn__work:focus-visible{
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    overflow-y: hidden;
+    
+} 
+
+.btn__work{
+    display: inline-block;
+    padding: .5em 1.8em;
+    background:#f1e6e2;
+    color:#303030;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: transform 200ms ease-in-out;
+
+}
+.btn__work:hover{
+    transform: scale(1.1);
+}
+
+.btn__work{
+    margin-bottom: 4em;
+
+}
+
+/*Typography*/
+
+
+
+
+
+h1 {line-height: 1;
+ margin: 0;}
+h2
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+
+
+h1 {font-size: var(--fs-h1); }
+h2 {font-size: var(--fs-h2); }
+h3 {font-size: var(--fs-h3); }
+
+
+.section__title {
+    background:fixed;
+    margin-bottom: .2em;
+    
+
+
+}
+
+
+
+
+.title--intro{
+    font-size: xx-large;
+}
+
+
+.title--intro strong{
+    display: block;
+
+
+}
+
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    padding: .25em;
+    background: aliceblue;
+    margin-bottom: 1em;
+    font-family: 'Fira Mono', monospace;
+}
+
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+  
+
+
+}
+
+
+.hamburger{
+   
+    display: block;
+    position: relative;
+    
+
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+    background:rgb(101, 163, 210);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transition 250ms ease-in-out;
+
+}
+.hamburger::before{top: 6px;}
+
+
+.hamburger::after{bottom: 6px;}
+
+
+
+
+
+
+.hamburger::before,
+.hamburger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+   
+}
+.logo{
+    max-width: 150px;
+}
+
+.nav{
+    position:fixed;
+    background:#303030;
+    color: #fff;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+    transform:translate(100%);
+    transition: transform 250ms cubic-bezier(.5,0,.5,1);
+}
+
+.nav__list{
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav__link {
+    color:#fff;
+    font-weight:bolder;
+    font-size:xx-large;
+    text-decoration: none;
+
+}
+
+.nav__link:hover{
+    color:rgb(101, 163, 210);
+}
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 1em;
+    z-index: 1000;
+
+}
+
+.nav-open .nav{ 
+    transform: translateX(0);
+    
+}
+
+.nav-open .nav-toggle{
+    position: fixed;
+}
+
+.nav-open .hamburger{
+    transform:  rotate(.625turn);
+}
+
+
+
+
+.nav-open .hamburger::before{
+    transform: rotate(90deg) translateX(-6px); 
+
+}
+
+
+
+
+
+
+.nav-open .hamburger::after {
+    opacity: 0;
+    
+    
+}
+
+
+
+
+
+
+/* INTRO SECTION */
+
+.intro {
+    position: relative;
+}
+
+.intro__img{
+    box-shadow:  3px 3px 3px 3px #888888 ;
+}
+.section__subtitle--intro {
+    display: inline-block;
+}
+
+@media (min-width: 600px) {
+    .intro{
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        column-gap: 1em;
+        grid-template-areas: 
+        "img title"
+        "img subtitle";
+        grid-template-columns: min-content max-content;
+
+
+    }
+
+    .intro__img {
+        grid-area:inherit;
+        min-width: 200px;
+        position: relative;
+        z-index: 2;
+
+
+    }
+    .section__subtitle--intro{
+        align-self: start;
+        grid-column: -1/1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+
+
+}
+
+
+/* WHAT I STUDY SECTION */
+ 
+/*this is the 'WHAT I STUDY'section*/
+.my-studies {
+    background-color:#303030;
+    background-image:url(../img/background\ web.jpg);
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
+    background-position: center center;
+    
+    
+    background-size: cover;
+    text-align:center;
+    color:#fff;
+
+}
+
+.section__title--services {
+    color: #f1e6e2;
+    position: relative;
+    
+
+}
+.section__title--services::after {
+    content: '';
+    display:block;
+    width: 2em;
+    height: 1px;
+    margin: 0.2em auto 0.2em;
+    background:#fff;
+    opacity: 0.5;
+
+}
+.stud{
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+@media (min-width: 800px) {
+    .stud{
+        display:flow-root;
+        max-width: 1000px;
+        margin-left: auto ;
+        margin-right: auto;
+
+        
+        
+
+    }
+    .service + .service{
+        margin-left: 2em;
+    }
+
+}
+
+
+.stud {
+    margin-bottom: 4em;
+}
+
+.About__me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+@media (min-width: 600px){
+    .About__me {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        grid-template-areas:
+        "title img"
+        "subtitle img"
+        "text img";
+        column-gap: 2em;
+        background-color: #f8f8f8;
+    }
+    .section__title--about{
+        grid-area: title;
+
+
+    }
+    .section__subtitle--about { /*makes the subtitle blue line override the image on the right*/
+        grid-column: 1/-1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 3em); 
+        padding-left: 1em;
+        padding-right: calc(200px + 4em);
+
+    }
+
+    .about__me--img { 
+       grid-area: img;
+       position: relative;
+       z-index: 2;
+       
+
+
+    }
+    .about__me--img {
+        box-shadow:  5px 5px 5px  #888888;
+        
+
+    }
+}
+
+
+
+
+/*Portfolio Section*/
+
+.my-work{
+    background-color:#303030;
+    color:#fff;
+    text-align: center;
+
+    
+}
+
+.section__subtitle--work{
+    color:#fff;
+    font-family:'Fira Mono',monospace;
+    font-size: x-large;
+    margin-bottom: 2em;
+    text-align: center;
+    
+}
+
+
+.portfolio{
+    display:grid;
+    grid-template-columns: repeat(3,2fr);
+}
+
+.more--details{
+    font-style: italic;
+    font-family:'Fira Mono',monospace;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BUTTONS FOR THE SOCIAL MEDIA LINKS */
+.btngit:hover {
+    transition: transform 200ms linear;
+    transform: scale(1.1);
+    opacity: .7;
+  }
+
+
+
+
+/*footer adjustments*/
+
+
+.footer{
+    background-color:white;
+    padding: 2.5em 0;
+    text-align: center;
+    height: 20vh;
+    
+
+}
+
+
+.footer_link:hover,
+.social-list__link:hover{
+    opacity: .6;
+    text-decoration: underline;
+    color:black;
+}
+
+.footer_link{
+    font-size:20px;
+    font-family:'Fira Mono', monospace;
+    font-weight:bolder;
+    color: aliceblue;
+}
+.footer_link:hover{
+    transition: transform 200ms ease-in-out;
+    transform: scale(1.1);
+    text-decoration: none;
+
+}
+
+.social-list__link{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+
+}
+
+.social-list__link{
+    padding: .5em;
+}
+
+.copyright{
+text-align: center;
+}
